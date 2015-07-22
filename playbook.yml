@@ -5,8 +5,8 @@
     - name: update apt cache
       apt: update_cache=yes
     - name: install apache
-      apt: name=apache2 state=present
+      apt: name=apache2 state=latest
     - name: install mysql
-      apt: name=mysql-server state=present
+      apt: name=mysql-server state=latest
     - name: install php
-      apt: name=php5 state=present
+      apt: name=php5 state=latest
