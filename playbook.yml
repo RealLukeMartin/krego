@@ -10,6 +10,9 @@
       apt: name=mysql-server state=latest
     - name: install php
       apt: name=php5 state=latest
-    - file: path=/var/www/html/info.php state=touch
-    - lineinfile: dest=/var/www/html/info.php state=present line="<?php phpinfo();"
-    - file: path=/var/www/ state=directory recurse=yes owner=www-data group=www-data mode=0755
+    - name: create info.php in webroot
+      file: path=/var/www/html/info.php state=touch
+    - name: add phpinfo() to info.php
+      lineinfile: dest=/var/www/html/info.php state=present line="<?php phpinfo();"
+    - name: set webroot permissions
+      file: path=/var/www/ state=directory recurse=yes owner=www-data group=www-data mode=0755
