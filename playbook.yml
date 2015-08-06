@@ -7,9 +7,3 @@
     - include: tasks/apache.yml
     - include: tasks/mysql.yml
     - include: tasks/php.yml
-    - name: create info.php in webroot
-      file: path=/var/www/html/info.php state=touch
-    - name: add phpinfo() to info.php
-      lineinfile: dest=/var/www/html/info.php state=present line="<?php phpinfo();"
-    - name: set webroot permissions
-      file: path=/var/www/ state=directory recurse=yes owner=www-data group=www-data mode=0755
